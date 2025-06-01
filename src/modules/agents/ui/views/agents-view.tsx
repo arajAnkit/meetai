@@ -9,10 +9,11 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 
 import { useTRPC } from "@/trpc/client";
 
+// Global reusable components
+import { DataTable } from "@/components/data-table";
 import { EmptyState } from "@/components/empty-state";
 
 import { columns } from "../components/columns";
-import { DataTable } from "../components/data-table";
 import { useAgentsFilters } from "../../hooks/use-agents-filters";
 import { DataPagination } from "../components/data-pagination";
 
