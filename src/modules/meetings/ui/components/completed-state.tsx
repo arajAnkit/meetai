@@ -14,10 +14,13 @@ import { Badge } from "@/components/ui/badge";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+import { formatDuration } from "@/lib/utils";
 import { GeneratedAvatar } from "@/components/generated-avatar";
 
+import { Transcript } from "./transcript";
+
 import { MeetingGetOne } from "../../types";
-import { formatDuration } from "@/lib/utils";
+import { ChatProvider } from "./chat-provider";
 
 interface CompletedStateProps {
   data: MeetingGetOne;
@@ -62,6 +65,12 @@ export const CompletedState = ({ data }: CompletedStateProps) => {
             <ScrollBar orientation="horizontal"></ScrollBar>
           </ScrollArea>
         </div>
+        <TabsContent value="chat">
+          <ChatProvider meetingId={data.id} meetingName={data.name} />
+        </TabsContent>
+        <TabsContent value="transcript">
+          <Transcript meetingId={data.id} />
+        </TabsContent>
         <TabsContent value="recording">
           <div className="bg-white rounded-lg border px-4 py-5">
             <video
