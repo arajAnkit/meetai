@@ -20,7 +20,7 @@ interface TranscriptProps {
 export const Transcript = ({ meetingId }: TranscriptProps) => {
   const trpc = useTRPC();
   const { data } = useQuery(
-    trpc.meetings.getTranscript.queryFilter({ id: meetingId })
+    trpc.meetings.getTranscript.queryOptions({ id: meetingId })
   );
 
   const [searchQuery, setSearchQuery] = useState("");
