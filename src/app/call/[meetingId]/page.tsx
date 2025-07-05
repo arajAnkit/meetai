@@ -1,8 +1,8 @@
-// import { Suspense } from "react";
+import { Suspense } from "react";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-// import { ErrorBoundary } from "react-error-boundary";
+import { ErrorBoundary } from "react-error-boundary";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 
 import { auth } from "@/lib/auth";
@@ -32,11 +32,11 @@ const Page = async ({ params }: Props) => {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      {/* <Suspense fallback={<p>TODO: call loading</p>}> */}
-      {/* <ErrorBoundary fallback={<p>TODO: Call error</p>}> */}
-      <CallView meetingId={meetingId} />
-      {/* </ErrorBoundary> */}
-      {/* </Suspense> */}
+      <Suspense fallback={<p>TODO: call loading</p>}>
+        <ErrorBoundary fallback={<p>TODO: Call error</p>}>
+          <CallView meetingId={meetingId} />
+        </ErrorBoundary>
+      </Suspense>
     </HydrationBoundary>
   );
 };
