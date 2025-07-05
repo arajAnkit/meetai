@@ -13,7 +13,7 @@ import {
   UpgradeViewLoading,
 } from "@/modules/premium/ui/views/upgrade-view";
 
-export const Page = async () => {
+const Page = async () => {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
@@ -37,3 +37,5 @@ export const Page = async () => {
     </HydrationBoundary>
   );
 };
+
+export default Page;
